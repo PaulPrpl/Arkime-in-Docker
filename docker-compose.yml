@@ -1,0 +1,20 @@
+version: "3.1"
+services:
+
+  arkime:
+    container_name: arkime
+    build: .
+    image: fortaneronc/arkime
+    ports:
+      - "8005:8005"
+    networks:
+      esnet:
+        ipv4_address: 10.7.0.10
+
+networks:
+  esnet:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 10.7.0.0/24
+        gateway: 10.7.0.1
